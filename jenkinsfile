@@ -1,35 +1,45 @@
+  GNU nano 5.3    
 pipeline {
     agent any
    
     stages {
          stage('RepoSync') {
             steps {
-              sh ( 'username=kdhulipudi
-password=@Saibaba1!
-# set this as your bitbucket username
-busername=kktinfo
-bpassword=@Saibaba1
-
-# automatically get existing git name from Parameter
-existin_repo_name=LaunchSatya
-
-# cloning loccally
-git clone https://${busername}:${bpassword}@bitbucket.org/kktinfo/${existin_repo_name}.git
-
-cd ${existin_repo_name}
-
-# create new git rep
-curl -u "${username}:${password}" https://api.github.com/user/repos -d "{\"name\":\"$existin_repo_name\", \"private\":\"true\" , \"description\":\"Private Repo for ${username} Project - ${existin_repo_name}\" }"
-echo "CREATED NEW GITHUB REPO"
-echo "https://github.com/${username}/${existin_repo_name}"
-
-gitRepo="https://${username}:${password}@github.com/${username}/${existin_repo_name}.git"
-
-#echo ${gitRepo}
-
-# set new repo as git remote and push
-git remote add upstream ${gitRepo}
-git push upstream master
-git push --tags upstream ')
-
-}}}}
+              
+             sh "ls -ltr"
+                 
+                 }
+                 }
+                  stage('Syncronize SECOND'){
+		         steps {
+		          withCredentials([usernamePassword(credentialsId: 'KKTBITBUCKET', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+		         //sh 'git clone --bare Testing.git source_repository'
+		        // dir("source_repository") {
+		         //  try{
+		             //add a remote repository
+		             
+		             sh 'git remote rm second'
+		             sh 'git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
+		            // sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/hdhulipudi/Test.git'
+		            // sync back the second repository
+		           sh 'git show-ref'
+		             sh( 'git push https://$USERNAME:$PASSWORD@github.com/hdhulipudi/Test.git --tags')
+			     sh ('git push second  master')
+		            
+		                  //   }catch(all){
+		         //    echo 'aaa'
+		         //    }
+		             // update the local copy from the first repository
+		        //     sh 'git fetch origin --tags'
+		 
+		             // update the local copy with the second repository
+		           //sh 'git fetch second --tags'
+		 
+		           
+		            //sh 'git push second --tags'
+		        // }
+		         }
+		         }
+        }
+                 }
+                 }
