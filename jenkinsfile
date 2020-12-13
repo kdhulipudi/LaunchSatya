@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+   
+    stages {
+         stage('RepoSync') {
+            steps {
+              sh ( 'username=kdhulipudi
+password=@Saibaba1!
+# set this as your bitbucket username
+busername=kktinfo
+bpassword=@Saibaba1
+
+# automatically get existing git name from Parameter
+existin_repo_name=LaunchSatya
+
+# cloning loccally
+git clone https://${busername}:${bpassword}@bitbucket.org/kktinfo/${existin_repo_name}.git
+
+cd ${existin_repo_name}
+
+# create new git rep
+curl -u "${username}:${password}" https://api.github.com/user/repos -d "{\"name\":\"$existin_repo_name\", \"private\":\"true\" , \"description\":\"Private Repo for ${username} Project - ${existin_repo_name}\" }"
+echo "CREATED NEW GITHUB REPO"
+echo "https://github.com/${username}/${existin_repo_name}"
+
+gitRepo="https://${username}:${password}@github.com/${username}/${existin_repo_name}.git"
+
+#echo ${gitRepo}
+
+# set new repo as git remote and push
+git remote add upstream ${gitRepo}
+git push upstream master
+git push --tags upstream ')
+
+}}}}
