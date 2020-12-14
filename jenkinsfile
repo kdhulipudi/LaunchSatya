@@ -41,7 +41,7 @@ environment {
                             // sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/hdhulipudi/Test.git'
                             // sync back the second repository
                            sh 'git show-ref'
-                             sh( 'git push https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git --tags')
+                             sh( 'git push second --tags')
                              sh ('git push second  master')
 
                                   //   }catch(all){
