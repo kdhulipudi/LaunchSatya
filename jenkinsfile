@@ -5,7 +5,7 @@ environment {
 
 }
     agent any
-
+//s
     stages {
          stage('RepoSync') {
             steps {
@@ -31,14 +31,14 @@ environment {
 		       		     //# Remember replace USER with your username and REPO with your repository/application name!
 		       		//     sh 'git remote add origin git@github.com:kdhulipudi/$existin_repo_name.git'
                //  sh 'git push origin master'
-                       //  try{
-                             //add a remote repository
-                            // try {
-                           // sh 'git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
-                            // }catch (all){
+                         //try{
+                           //  add a remote repository
+                             try {
+                            sh 'git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
+                             }catch (all){
                                   
  
-                             //}
+                             }
                           //   sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
                             // sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/hdhulipudi/Test.git '
                             // sync back the second repository
