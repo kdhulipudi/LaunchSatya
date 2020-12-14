@@ -18,7 +18,7 @@ environment {
                          steps {
                               script{ 
                                     
-                          withCredentials([usernamePassword(credentialsId: '9cdd78e6-44dd-4a3d-8c44-492fd2093f49', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                          withCredentials([usernamePassword(credentialsId: '463f14f5-6ce4-45c7-8624-aa3006f7e32e', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                          //sh 'git clone --bare Testing.git source_repository'
                         // dir("source_repository") {
                               
