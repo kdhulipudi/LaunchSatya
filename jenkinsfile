@@ -32,10 +32,10 @@ environment {
                        //  try{
                              //add a remote repository
                              try {
-                             sh 'git remote rm second'
+                            sh 'git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
                              }catch (all){
-                                   sh 'git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
-
+                                  
+ 
                              }
                              sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
                             // sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/hdhulipudi/Test.git'
