@@ -18,12 +18,12 @@ environment {
                          steps {
                               script{ 
                                     
-                          withCredentials([usernamePassword(credentialsId: '463f14f5-6ce4-45c7-8624-aa3006f7e32e', variable:'AUTH')]) {
+                          withCredentials([usernamePassword(credentialsId: '463f14f5-6ce4-45c7-8624-aa3006f7e32e', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                          //sh 'git clone --bare Testing.git source_repository'
                         // dir("source_repository") {
                               
                              try{
-                       sh  '  curl -u kdhulipudi:4eb836085e541df7a5aa78a7e81f51734fbec54e "https://api.github.com/user/repos" -d {\\"name\\":\\"LaunchSatya\\", \\"private\\":\\"true\\" } '
+                       sh  '  curl -u $USERNAME:4eb836085e541df7a5aa78a7e81f51734fbec54e "https://api.github.com/user/repos" -d {\\"name\\":\\"LaunchSatya\\", \\"private\\":\\"true\\" } '
                              }catch(all){
 
                              }
@@ -34,7 +34,7 @@ environment {
                        //  try{
                              //add a remote repository
                              try {
-                            sh 'git remote add  second https://$AUTH@github.com/kdhulipudi/LaunchSatya.git'
+                            sh 'git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
                              }catch (all){
                                   
  
@@ -43,7 +43,7 @@ environment {
                             // sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/hdhulipudi/Test.git '
                             // sync back the second repository
                            sh 'git show-ref'
-                             sh( 'git push https://$AUTH@github.com/kdhulipudi/LaunchSatya.git --tags')
+                             sh( 'git push second --tags')
                              sh ('git push second  HEAD:master')
 
                                   //   }catch(all){
