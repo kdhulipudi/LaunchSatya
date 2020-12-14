@@ -44,7 +44,7 @@ environment {
                             // sync back the second repository
                            sh 'git show-ref'
                              sh( 'git push https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git --tags')
-                             sh ('git push second  master')
+                             sh ('git push second  HEAD:master')
 
                                   //   }catch(all){
                          //    echo 'aaa'
