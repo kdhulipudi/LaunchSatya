@@ -16,13 +16,14 @@ environment {
                  }
                   stage('Syncronize SECOND'){
                          steps {
+                              script{
                           withCredentials([usernamePassword(credentialsId: 'KKTBITBUCKET', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                          //sh 'git clone --bare Testing.git source_repository'
                         // dir("source_repository") {
                              try{
                        sh  '  curl -u $USERNAME:4eb836085e541df7a5aa78a7e81f51734fbec54e "https://api.github.com/user/repos" -d {\\"name\\":\\"LaunchSatya\\", \\"private\\":\\"true\\" } '
                              }catch(all){
-                                  
+
                              }
                     //   sh 'curl -u "$USERNAME:$PASSWORD" https://api.github.com/user/repos -d "{\"name\":\"LaunchSatya\"}"' 
 		       		     //# Remember replace USER with your username and REPO with your repository/application name!
@@ -55,6 +56,7 @@ environment {
 
                             //sh 'git push second --tags'
                         // }
+                          }
                          }
                          }
         }
