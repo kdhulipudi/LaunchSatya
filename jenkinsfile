@@ -45,8 +45,8 @@ environment {
                             sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
                            sh 'git show-ref'
                              sh( 'git push https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git master --tags ')
-                             sh ('git push https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git  master ')
-
+                             sh ('git push https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git  master ')     
+//hello
                                   //   }catch(all){
                          //    echo 'aaa'
                          //    }
