@@ -23,7 +23,7 @@ environment {
                         // dir("source_repository") {
                               
                              try{
-                       sh  '  curl -u $USERNAME:4eb836085e541df7a5aa78a7e81f51734fbec54e "https://api.github.com/user/repos" -d {\\"name\\":\\"LaunchSatya\\", \\"private\\":\\"true\\" } '
+                       sh  '  curl -u $USERNAME:169c7e6dc1817850cf83a61d27cba8589c40ee16 "https://api.github.com/user/repos" -d {\\"name\\":\\"LaunchSatya\\", \\"private\\":\\"true\\" } '
                              }catch(all){
 
                              }
