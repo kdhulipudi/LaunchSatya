@@ -32,7 +32,7 @@ environment {
                        //  try{
                              //add a remote repository
                              try {
-                            sh 'git remote add  second https:// $USERNAME :\\"%40Saibaba1!\\"@github.com/kdhulipudi/LaunchSatya.git'
+                            sh 'git remote add  second https:// $USERNAME :\\"Saibaba1!\\"@github.com/kdhulipudi/LaunchSatya.git'
                              }catch (all){
                                   
  
