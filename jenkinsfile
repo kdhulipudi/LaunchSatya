@@ -16,10 +16,13 @@ environment {
                  }
                   stage('Syncronize SECOND'){
                          steps {
-                              script{
+                              script{ 
+                                   def USERNAME=""
+                                   def PASSWORD=""
                           withCredentials([usernamePassword(credentialsId: '9cdd78e6-44dd-4a3d-8c44-492fd2093f49', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                          //sh 'git clone --bare Testing.git source_repository'
                         // dir("source_repository") {
+                             USERNAME=$USERNAME
                              try{
                        sh  '  curl -u $USERNAME:4eb836085e541df7a5aa78a7e81f51734fbec54e "https://api.github.com/user/repos" -d {\\"name\\":\\"LaunchSatya\\", \\"private\\":\\"true\\" } '
                              }catch(all){
@@ -38,7 +41,7 @@ environment {
  
                              }
                           //   sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
-                            // sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/hdhulipudi/Test.git'
+                            // sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/hdhulipudi/Test.git '
                             // sync back the second repository
                            sh 'git show-ref'
                              sh( 'git push https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git --tags')
