@@ -19,7 +19,7 @@ environment {
                           withCredentials([usernamePassword(credentialsId: 'KKTBITBUCKET', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                          //sh 'git clone --bare Testing.git source_repository'
                         // dir("source_repository") {
-                       sh  'curl -u "$USERNAME:4eb836085e541df7a5aa78a7e81f51734fbec54e" https://api.github.com/user/repos -d \\"{\\"name\\":\\"LaunchSatya\\", \\"private\\":\\"true\\" }\\"'
+                       sh  'curl -u "$USERNAME:4eb836085e541df7a5aa78a7e81f51734fbec54e" https://api.github.com/user/repos -d {\\"name\\":\\"LaunchSatya\\", \\"private\\":\\"true\\" }'
                     //   sh 'curl -u "$USERNAME:$PASSWORD" https://api.github.com/user/repos -d "{\"name\":\"LaunchSatya\"}"'
 		       		     //# Remember replace USER with your username and REPO with your repository/application name!
 		       		//     sh 'git remote add origin git@github.com:kdhulipudi/$existin_repo_name.git'
