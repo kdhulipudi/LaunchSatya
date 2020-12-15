@@ -25,7 +25,7 @@ environment {
                               
                             // try{
                          sh  '''
-                            git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git;
+                            git remote set-url  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git;
                             if [  $? != 0 ]; then curl -u $USERNAME:$PASSWORD "https://api.github.com/user/repos" -d {\\"name\\":\\"$PROJECT_NAME_KK\\", \\"private\\":\\"true\\" }; 
                              fi
                             '''
