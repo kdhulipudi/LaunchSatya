@@ -26,6 +26,11 @@ environment {
                             // try{
                          sh  '''
                             git config --get remote.second.url
+                            basename=$(basename git config --get remote.second.url)
+$ echo $basename
+ 
+$ filename=${basename%.*}
+$ echo $filename
                             df=$?
                             if [ df != 0 ]; then curl -u $USERNAME:$PASSWORD "https://api.github.com/user/repos" -d {\\"name\\":\\"$PROJECT_NAME_KK\\", \\"private\\":\\"true\\" }; 
                              fi
