@@ -39,9 +39,9 @@ environment {
                            //  add a remote repository
                             // try {
                             sh   '''
-                                       git config --get remote.second.url
+                                       
                                        git remote show | grep third
-                                    if [ $? -eq 1 ]; then git remote add  third https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git;
+                                    if [ $? != 1 ]; then git remote add  third https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git;
                                     fi
                                     ''' 
                               
