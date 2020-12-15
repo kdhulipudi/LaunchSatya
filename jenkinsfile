@@ -23,16 +23,12 @@ environment {
                          //sh 'git clone --bare Testing.git source_repository'
                         // dir("source_repository") {
                               
-                            // try{
-                         sh  '''
-                         curl -u $USERNAME:$PASSWORD "https://api.github.com/user/repos" -d {\\"name\\":\\"$PROJECT_NAME_KK\\", \\"private\\":\\"true\\" }
-                             #basename -s .git $(git remote get-url second) 
+                              try{
+                         sh  ' curl -u $USERNAME:$PASSWORD "https://api.github.com/user/repos" -d {\\"name\\":\\"$PROJECT_NAME_KK\\", \\"private\\":\\"true\\" }'
+                             
                             
-                           # if [ $? != 0 ]; then curl -u $USERNAME:$PASSWORD "https://api.github.com/user/repos" -d {\\"name\\":\\"$PROJECT_NAME_KK\\", \\"private\\":\\"true\\" }; 
-                           #  fi
-                            '''
                         
-                           //  }catch(all){
+                              }catch(all){
 
                            //  }
                     //   sh 'curl -u "$USERNAME:$PASSWORD" https://api.github.com/user/repos -d "{\"name\":\"LaunchSatya\"}"' 
