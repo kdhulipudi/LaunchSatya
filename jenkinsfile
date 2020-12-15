@@ -18,12 +18,12 @@ environment {
                          steps {
                               script{ 
                                     
-                          withCredentials([usernamePassword(credentialsId: 'eeda8f5c-e817-422b-88b9-05748bd892e8', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                          withCredentials([usernamePassword(credentialsId: '71ed1d53-1370-4eef-b9cf-2f46fa657762', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                          //sh 'git clone --bare Testing.git source_repository'
                         // dir("source_repository") {
                               
                              try{
-                       sh  '  curl -u $USERNAME:0419dad3122a27509b12ed8338eb980f50870656 "https://api.github.com/user/repos" -d {\\"name\\":\\"LaunchSatya\\", \\"private\\":\\"true\\" } '
+                       sh  '  curl -u $USERNAME:$PASSWORD "https://api.github.com/user/repos" -d {\\"name\\":\\"LaunchKiran\\", \\"private\\":\\"true\\" } '
                              }catch(all){
 
                              }
