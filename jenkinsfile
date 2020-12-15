@@ -10,7 +10,7 @@ environment {
     stages {
          stage('RepoSync') {
             steps {
-             sh 'echo $PROJECT_NAME'
+             sh 'echo $PROJECT_NAME_KK'
              sh "ls -ltr"
 
                  }
@@ -24,7 +24,7 @@ environment {
                         // dir("source_repository") {
                               
                              try{
-                       sh  '  curl -u $USERNAME:$PASSWORD "https://api.github.com/user/repos" -d {\\"name\\":\\"LaunchKiran\\", \\"private\\":\\"true\\" } '
+                       sh  '  curl -u $USERNAME:$PASSWORD "https://api.github.com/user/repos" -d {\\"name\\":\\"$PROJECT_NAME_KK\\", \\"private\\":\\"true\\" } '
                              }catch(all){
 
                              }
@@ -35,7 +35,7 @@ environment {
                          //try{
                            //  add a remote repository
                              try {
-                            sh 'git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchKiran.git'
+                            sh 'git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git'
                              }catch (all){
                                   //asd
  
@@ -43,11 +43,11 @@ environment {
                           //   sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
                             // sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/hdhulipudi/Test.git '
                             // sync back the second repository
-                            sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchKiran.git'
+                            sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git'
                            sh 'git show-ref'
                              //sh( 'git push second --tags ')
  
-                             sh ('git push second --all')     
+                             sh ('git push second HEAD:master')     
 //hello
                                   //   }catch(all){
                          //    echo 'aaa'
