@@ -3,13 +3,14 @@ pipeline {
 environment {
    existin_repo_name = 'LaunchSatya'
 
+
 }
     agent any
 //s
     stages {
          stage('RepoSync') {
             steps {
-
+             sh 'echo $PROJECT_NAME'
              sh "ls -ltr"
 
                  }
@@ -45,9 +46,7 @@ environment {
                             sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchKiran.git'
                            sh 'git show-ref'
                              //sh( 'git push second --tags ')
-
-                        sh('git branch')
-
+ 
                              sh ('git push second --all')     
 //hello
                                   //   }catch(all){
