@@ -25,8 +25,8 @@ environment {
                               
                             // try{
                          sh  '''
-                            git config --get remote.second.url
-                            basename=$(basename git config --get remote.second.url)
+                            url=git config --get remote.second.url
+                            basename=$(basename $url)
 $ echo $basename
  
 $ filename=${basename%.*}
