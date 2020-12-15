@@ -41,7 +41,7 @@ environment {
                             sh   '''
                                        git config --get remote.second.url
                                        git remote show | grep second
-                                    if [ $? != 0 ]; then git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git;
+                                    if [ $? -eq 1 ]; then git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git;
                                     fi
                                     ''' 
                               
