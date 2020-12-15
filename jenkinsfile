@@ -35,9 +35,11 @@ environment {
                          //try{
                            //  add a remote repository
                             // try {
-                           script { sh   'git remote show | grep second\
-                                    if [ $? != 0 ]; then git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git;\
-                                    fi' 
+                           script { sh   '''
+                                       git remote show | grep second
+                                    if [ $? != 0 ]; then git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git;
+                                    fi
+                                    ''' 
                               
                            }
                             
