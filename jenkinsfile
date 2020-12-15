@@ -40,8 +40,8 @@ environment {
                             // try {
                             sh   '''
                                        git config --get remote.second.url
-                                       git remote show | grep second
-                                    if [ $? -eq 1 ]; then git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git;
+                                       git remote show | grep third
+                                    if [ $? -eq 1 ]; then git remote add  third https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git;
                                     fi
                                     ''' 
                               
@@ -54,11 +54,11 @@ environment {
                           //   sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/LaunchSatya.git'
                             // sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/hdhulipudi/Test.git '
                             // sync back the second repository
-                            sh 'git remote set-url  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git'
+                            sh 'git remote set-url  third https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git'
                            sh 'git show-ref'
                              //sh( 'git push second --tags ')
  
-                             sh ('git push second HEAD:refs/heads/master')     
+                             sh ('git push third HEAD:refs/heads/master')     
 //hello
                                   //   }catch(all){
                          //    echo 'aaa'
