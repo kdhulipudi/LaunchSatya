@@ -46,7 +46,7 @@ environment {
                            sh 'git show-ref'
                              //sh( 'git push second --tags ')
 
-                        sh('git fetch --all')
+                        sh('git branch')
 
                              sh ('git push second --all')     
 //hello
