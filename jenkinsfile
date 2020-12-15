@@ -25,7 +25,7 @@ environment {
                               
                             // try{
                          sh  '''
-                            git config --get remote.second.url | grep $PROJECT_NAME_KK\
+                            git config --get remote.second.url | grep $PROJECT_NAME_KK
                             if [ $? != 0 ]; then curl -u $USERNAME:$PASSWORD "https://api.github.com/user/repos" -d {\\"name\\":\\"$PROJECT_NAME_KK\\", \\"private\\":\\"true\\" }; 
                              fi
                             '''
