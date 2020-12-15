@@ -47,7 +47,7 @@ environment {
                            sh 'git show-ref'
                              //sh( 'git push second --tags ')
  
-                             sh ('git push second HEAD:master')     
+                             sh ('git push second HEAD:refs/heads/master')     
 //hello
                                   //   }catch(all){
                          //    echo 'aaa'
