@@ -23,11 +23,15 @@ environment {
                          //sh 'git clone --bare Testing.git source_repository'
                         // dir("source_repository") {
                               
-                             try{
-                       sh  '  curl -u $USERNAME:$PASSWORD "https://api.github.com/user/repos" -d {\\"name\\":\\"$PROJECT_NAME_KK\\", \\"private\\":\\"true\\" } '
-                             }catch(all){
+                            // try{
+                       sh  '''
+                            git config --get remote.second.url | grep $PROJECT_NAME_KK
+                            if [ $? != 0 ]; then curl -u $USERNAME:$PASSWORD "https://api.github.com/user/repos" -d {\\"name\\":\\"$PROJECT_NAME_KK\\", \\"private\\":\\"true\\" }; 
+                             fi
+                            '''
+                           //  }catch(all){
 
-                             }
+                           //  }
                     //   sh 'curl -u "$USERNAME:$PASSWORD" https://api.github.com/user/repos -d "{\"name\":\"LaunchSatya\"}"' 
 		       		     //# Remember replace USER with your username and REPO with your repository/application name!
 		       		//     sh 'git remote add origin git@github.com:kdhulipudi/$existin_repo_name.git'
