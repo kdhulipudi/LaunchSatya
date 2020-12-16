@@ -55,7 +55,7 @@ environment {
                            sh 'git show-ref'
                              sh( 'git push second --tags ')
  
-                             sh ('git push second --all')    
+                             sh ('git push  --mirror')    
 
                              
 //hello
