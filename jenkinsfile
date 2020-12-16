@@ -38,7 +38,7 @@ environment {
                          //try{
                            //  add a remote repository
                             // try {
-                                 sh 'git remote rm second' 
+                                // sh 'git remote rm second' 
                             sh   'git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git'
                                  
                               
@@ -55,7 +55,7 @@ environment {
                            sh 'git show-ref'
                              sh( 'git push second --tags ')
  
-                             sh ('git push  --mirror')    
+                             sh ('git push second --all')    
 
                              
 //hello
