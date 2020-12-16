@@ -40,10 +40,8 @@ environment {
                             // try {
                             sh   '''
                                        
-                                    git remote show | second 
-                                    if [ "$?" != "0" ]; then git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git;
-                                    fi
-                                    ''' 
+                                 git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git
+                                 
                               
                           
                             
@@ -58,7 +56,9 @@ environment {
                            sh 'git show-ref'
                              sh( 'git push second --tags ')
  
-                             sh ('git push second --all')     
+                             sh ('git push second --all')    
+
+                             sh 'git remote rm second' 
 //hello
                                   //   }catch(all){
                          //    echo 'aaa'
