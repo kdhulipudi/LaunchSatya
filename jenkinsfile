@@ -38,6 +38,7 @@ environment {
                          //try{
                            //  add a remote repository
                             // try {
+                                 sh 'git remote rm second' 
                             sh   'git remote add  second https://$USERNAME:$PASSWORD@github.com/kdhulipudi/$PROJECT_NAME_KK.git'
                                  
                               
@@ -56,7 +57,7 @@ environment {
  
                              sh ('git push second --all')    
 
-                             sh 'git remote rm second' 
+                             
 //hello
                                   //   }catch(all){
                          //    echo 'aaa'
